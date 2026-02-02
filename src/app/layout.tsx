@@ -34,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} font-sans antialiased`}
       >
+        <div className="animate-noise" />
         <Navbar />
         {children}
         <Footer />

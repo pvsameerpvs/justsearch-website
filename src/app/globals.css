@@ -123,16 +123,54 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/70 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10;
+    @apply bg-white/70 dark:bg-black/60 backdrop-blur-xl border-b border-white/20 dark:border-white/5;
   }
+
   .glass-card {
-    @apply bg-white/80 dark:bg-brand-charcoal/50 backdrop-blur-lg border border-white/20 dark:border-white/10 shadow-xl;
+    @apply bg-white/60 dark:bg-white/5 backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-2xl;
   }
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-brand-coral;
-  }
+
   .bg-gradient-brand {
-    @apply bg-gradient-to-r from-brand-orange to-brand-coral;
+    background-image: linear-gradient(to right, var(--color-brand-orange), var(--color-brand-coral));
+  }
+
+  .text-gradient {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, var(--color-brand-orange), var(--color-brand-coral));
+  }
+
+  /* Grid Background Utility */
+  .bg-grid-slate-100 {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+
+  .bg-grid-slate-700\/20 {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+
+  /* Custom Cursor Animation */
+  @keyframes ripple {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(4); opacity: 0; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-noise {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.05;
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
   }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-30px) rotate(2deg); }
+}

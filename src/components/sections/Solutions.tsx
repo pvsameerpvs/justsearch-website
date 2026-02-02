@@ -1,104 +1,139 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  TrendingUp, 
-  Target, 
-  BarChart3, 
-  MapPin, 
-  MousePointer2, 
-  PieChart, 
-  Zap, 
-  Layers,
-  Sparkles
-} from "lucide-react";
+import { TrendingUp, Users, Target, Rocket, PieChart, Sparkles, Zap, Shield } from "lucide-react";
 
 const solutions = [
-  { title: "Boost Online Visibility", icon: MousePointer2 },
-  { title: "Drive Leads & Sales", icon: Zap },
-  { title: "Brand Awareness Campaigns", icon: Target },
-  { title: "Tailored Digital Strategies", icon: Layers },
-  { title: "Insights & Growth Reports", icon: PieChart },
-  { title: "Transparent Reporting", icon: BarChart3 },
-  { title: "UAE Market Experts", icon: MapPin },
-  { title: "A/B Testing & Optimization", icon: TrendingUp }
+  {
+    title: "Maximum ROI",
+    desc: "Our strategies are built around your bottom line, ensuring every dirham spent brings measurable value.",
+    icon: TrendingUp,
+    color: "text-brand-orange",
+    bg: "bg-brand-orange/10"
+  },
+  {
+    title: "Targeted Audience",
+    desc: "Reach the right people at the right time using our precision-targeted local data sets.",
+    icon: Target,
+    color: "text-brand-coral",
+    bg: "bg-brand-coral/10"
+  },
+  {
+    title: "Scalable Systems",
+    desc: "From startups to enterprises, we build infrastructure that grows with your ambition.",
+    icon: Rocket,
+    color: "text-blue-500",
+    bg: "bg-blue-500/10"
+  },
+  {
+    title: "Brand Authority",
+    desc: "We position you as a market leader in the UAE through calculated digital storytelling and SEO dominance.",
+    icon: Shield,
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10"
+  }
 ];
 
 export function Solutions() {
   return (
-    <section id="solutions" className="py-24 bg-white dark:bg-brand-charcoal overflow-hidden">
+    <section id="solutions" className="py-32 relative overflow-hidden bg-[#fafafa] dark:bg-black/40">
+      <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-700/20 [mask-image:radial-gradient(ellipse_at_center,black,transparent)] -z-10" />
+      
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-black mb-8">
-              Why Choose Our <br />
-              <span className="text-gradient">Solutions?</span>
-            </h2>
-            <p className="text-lg text-brand-text mb-12">
-              We understand the challenges UAE businesses face in the digital world. To help you grow, we provide end-to-end digital solutions designed for performance and ROI.
-            </p>
+        <div className="flex flex-col lg:flex-row items-center gap-24">
+          <div className="lg:w-1/2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-[10px] font-black uppercase tracking-[0.3em] mb-6"
+            >
+              The Impact
+            </motion.div>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-5xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.9]"
+            >
+              SOLUTIONS THAT <br /><span className="text-brand-orange">SCALE.</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-xl text-brand-text/70 dark:text-gray-400 mb-12 font-medium leading-relaxed"
+            >
+              We don&apos;t just deliver services; we deploy growth systems. Each solution is a cog in a high-performance machine designed for the UAE ecosystem.
+            </motion.p>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {solutions.map((item, index) => (
+            <div className="grid sm:grid-cols-2 gap-8">
+              {solutions.map((item, i) => (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-light-grey dark:bg-white/5 border border-transparent hover:border-brand-orange/30 transition-all duration-300"
+                  transition={{ delay: i * 0.1 }}
+                  className="group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-brand-orange/10 flex items-center justify-center shrink-0">
-                    <item.icon className="w-5 h-5 text-brand-orange" />
+                  <div className={`w-14 h-14 rounded-2xl ${item.bg} ${item.color} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 border border-white dark:border-white/5 shadow-lg shadow-brand-orange/5`}>
+                    <item.icon className="w-7 h-7" />
                   </div>
-                  <span className="font-bold text-sm leading-tight">{item.title}</span>
+                  <h4 className="text-2xl font-black mb-3 tracking-tight group-hover:text-brand-orange transition-colors">{item.title}</h4>
+                  <p className="text-brand-text/60 dark:text-gray-500 text-sm font-bold leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            className="relative"
-          >
-            <div className="aspect-square glass-card rounded-[3rem] p-12 flex items-center justify-center">
-               <div className="relative w-full h-full flex items-center justify-center">
-                  <div className="absolute inset-0 bg-brand-orange/20 rounded-full animate-pulse blur-3xl" />
-                  <div className="z-10 text-center">
-                    <div className="text-7xl font-black text-brand-charcoal dark:text-white mb-2 tracking-tighter">ROI</div>
-                    <div className="text-brand-orange font-black text-2xl tracking-widest uppercase">Focused</div>
-                  </div>
-                  
-                  {/* Rotating elements */}
-                  {[0, 72, 144, 216, 288].map((angle, i) => (
-                    <motion.div
-                      key={angle}
-                      className="absolute w-12 h-12 bg-white dark:bg-brand-charcoal shadow-xl rounded-2xl flex items-center justify-center border border-brand-orange/20"
-                      animate={{
-                        rotate: [0, 360],
-                      }}
-                      transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                        delay: -i * 4
-                      }}
-                      style={{
-                        transformOrigin: "center 180px",
-                        top: "10%",
-                      }}
-                    >
-                      <Sparkles className="w-6 h-6 text-brand-orange" />
-                    </motion.div>
-                  ))}
-               </div>
-            </div>
-          </motion.div>
+          <div className="lg:w-1/2 relative">
+            <motion.div
+              initial={{ opacity: 0, rotate: -10, scale: 0.8 }}
+              whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
+              transition={{ duration: 1.2, ease: "circOut" }}
+              className="relative aspect-square max-w-md mx-auto"
+            >
+              <div className="absolute inset-0 bg-brand-orange/20 rounded-[3rem] blur-3xl scale-110" />
+              <div className="relative z-10 w-full h-full glass-card rounded-[4rem] border-brand-orange/30 p-12 flex flex-col items-center justify-center text-center overflow-hidden">
+                 <div className="absolute top-0 right-0 p-8">
+                    <Sparkles className="w-12 h-12 text-brand-orange/20 animate-pulse" />
+                 </div>
+                 
+                 <motion.div 
+                   animate={{ scale: [1, 1.1, 1] }} 
+                   transition={{ duration: 4, repeat: Infinity }}
+                   className="relative mb-8"
+                 >
+                    <div className="absolute inset-0 bg-brand-orange/20 blur-2xl rounded-full" />
+                    <TrendingUp className="w-32 h-32 text-brand-orange relative z-10" />
+                 </motion.div>
+                 
+                 <div className="text-6xl font-black tracking-tighter text-brand-charcoal dark:text-white mb-2">+340%</div>
+                 <div className="text-sm font-black uppercase tracking-[0.3em] text-brand-orange">Average Growth</div>
+                 
+                 <div className="mt-12 flex gap-4">
+                    <div className="flex -space-x-4">
+                       {[1,2,3,4].map(i => (
+                         <div key={i} className={`w-12 h-12 rounded-full border-4 border-white dark:border-brand-charcoal overflow-hidden bg-gray-${100 * i}`}>
+                            <div className="w-full h-full flex items-center justify-center text-[10px] font-black text-gray-500">U{i}</div>
+                         </div>
+                       ))}
+                    </div>
+                    <div className="text-left">
+                       <div className="text-xs font-black uppercase tracking-widest text-brand-text">Joined Today</div>
+                       <div className="text-[10px] font-bold text-green-500">+12 Local Businesses</div>
+                    </div>
+                 </div>
+              </div>
+              
+              {/* Corner elements */}
+              <motion.div 
+                animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 5, repeat: Infinity }}
+                className="absolute -top-12 -right-12 p-6 glass-card rounded-3xl border-brand-orange/30 z-20"
+              >
+                 <Zap className="w-8 h-8 text-brand-orange" />
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
