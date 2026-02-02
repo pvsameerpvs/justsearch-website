@@ -10,7 +10,8 @@ import {
   Zap,
   ShieldCheck,
   Smartphone,
-  Cpu
+  Cpu,
+  Workflow
 } from "lucide-react";
 
 const services = [
@@ -24,8 +25,8 @@ const services = [
   },
   {
     title: "SEO & AEO",
-    desc: "Search and AI Engine Optimization to rank higher and appear in voice/chat results.",
-    items: ["Keyword Strategy", "AI Optimization", "Schema Data"],
+    desc: "Dominate search results with next-gen Search & AI Engine Optimization. We ensure your business ranks on Google and appears in AI-driven results like ChatGPT, Perplexity, and Meta AI.",
+    items: ["AI Search Visibility", "Keyword Strategy", "Technical SEO & Schema", "Voice Search Ready"],
     icon: Search,
     color: "from-orange-500/10 to-orange-600/10",
     iconColor: "text-brand-orange"
@@ -53,6 +54,14 @@ const services = [
     icon: Smartphone,
     color: "from-indigo-500/10 to-indigo-600/10",
     iconColor: "text-indigo-500"
+  },
+  {
+    title: "Workflow Automation",
+    desc: "Connect your apps and automate repetitive tasks to save hundreds of hours.",
+    items: ["App Integration", "Custom Logic", "24/7 Processing"],
+    icon: Workflow,
+    color: "from-cyan-500/10 to-cyan-600/10",
+    iconColor: "text-cyan-500"
   },
   {
     title: "Custom Software (CRM/ERP)",

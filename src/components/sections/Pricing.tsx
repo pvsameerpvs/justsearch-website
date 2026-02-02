@@ -59,46 +59,51 @@ const websitePlans = [
 
 const seoSocialPlans = [
   {
-    name: "Monthly",
-    price: "1,000",
+    name: "Growth Booster",
+    price: "1,500",
     period: "/mo",
     features: [
-      "45 Mins Daily SEO Work",
-      "Up to 50 Keywords",
-      "Dedicated Project Manager",
-      "Weekly Blog Posting",
-      "3 Backlinks Per Week",
-      "Social Media Management",
-      "10-20 Guaranteed Enquiries",
-      "Monthly Reports"
+      "SEO & AEO Fundamentals",
+      "Keyword & AI Search Research",
+      "Schema.org Implementation",
+      "Weekly Blog & AI Content",
+      "5-10 High Authority Backlinks",
+      "Google My Business Setup",
+      "Monthly Growth Report",
+      "Voice Search Optimization"
     ]
   },
   {
-    name: "Quarterly",
-    price: "2,500",
-    period: "/3 mos",
-    save: "AED 500",
+    name: "Market Leader",
+    price: "3,500",
+    period: "/mo",
+    save: "AED 1,000",
     features: [
-      "Everything in Monthly",
-      "Extended Strategy Calls",
-      "Deeper Competitor Analysis",
-      "Enhanced Content Calendar",
-      "Priority Support"
+      "Everything in Growth Booster",
+      "Advanced AEO Strategies",
+      "Competitor Gap Analysis",
+      "Daily SEO/AEO Monitoring",
+      "Premium Backlink Profile",
+      "Social Commerce Setup",
+      "Lead Generation Focused",
+      "Priority WhatsApp Support"
     ],
     popular: true
   },
   {
-    name: "Yearly",
-    price: "8,000",
-    period: "/year",
-    save: "AED 4,000",
+    name: "Enterprise Sultan",
+    price: "8,500",
+    period: "/mo",
+    save: "AED 5,000",
     features: [
-      "Complete Growth Suite",
-      "Premium Backlink Profile",
-      "Full Site Optimization",
-      "Full Social Media Strategy",
-      "Maximum ROI Focus",
-      "Dedicated Account Manager"
+      "The Ultimate Growth Suite",
+      "Full AI Engine Dominance",
+      "Multi-Brand Reputation Mgmt",
+      "Dedicated Project Director",
+      "Custom Content Engine",
+      "Omnichannel Strategy",
+      "Full Social Media Mgmt",
+      "Performance Guarantee"
     ]
   }
 ];
@@ -143,6 +148,20 @@ const customSoftwarePlans = [
       "Supply Chain Integration",
       "Multi-Branch Support",
       "Data Migration & Training"
+    ],
+    popular: false
+  },
+  {
+    name: "Workflow Automation",
+    price: "1,500+",
+    desc: "Streamline your business with intelligent automated workflows.",
+    features: [
+      "Multi-App Integration",
+      "Custom Logic Design",
+      "24/7 Automated Processing",
+      "Error Monitoring & Logs",
+      "Scalable Architecture",
+      "Maintenance & Support"
     ],
     popular: false
   }

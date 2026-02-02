@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -6,8 +7,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
-            <Link href="/" className="text-2xl font-black mb-6 block">
-              JUST<span className="text-brand-orange">SEARCH</span>
+            <Link href="/" className="mb-6 block">
+              <Image 
+                src="/logo-js.png" 
+                alt="JustSearch Logo" 
+                width={150} 
+                height={40} 
+                className="h-10 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               UAE&apos;s leading digital directory and lead-generation partner. Empowering businesses with innovative marketing solutions.
