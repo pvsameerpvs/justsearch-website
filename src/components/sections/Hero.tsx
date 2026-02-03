@@ -30,140 +30,142 @@ export function Hero() {
   } as any;
 
   return (
-    <section ref={containerRef} className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[#fafafa] dark:bg-brand-charcoal">
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
-        <motion.div 
-          style={{ y: y1 }}
-          className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-brand-orange/10 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-soft-light" 
+    <section 
+      ref={containerRef} 
+      className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white dark:bg-brand-charcoal"
+    >
+      {/* Background Slices/Gooey Elements */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-charcoal/5 dark:bg-white/5 -z-10" />
+      <div className="absolute top-0 right-0 w-full h-full -z-10 pointer-events-none">
+        <div 
+          className="absolute top-0 right-0 w-[60%] h-full bg-brand-orange/10 transform skew-x-[-12deg] origin-top translate-x-1/4"
         />
         <motion.div 
-          style={{ y: y2 }}
-          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-coral/15 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-soft-light" 
+          animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 right-[40%] w-64 h-64 bg-brand-orange/10 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-soft-light" 
         />
-        <div className="absolute top-1/4 right-1/4 w-4 h-4 bg-brand-orange/40 rounded-full animate-ping" />
-        <div className="absolute bottom-1/3 left-1/4 w-3 h-3 bg-brand-coral/40 rounded-full animate-ping delay-1000" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="relative z-10"
           >
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-white/5 shadow-sm border border-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-wider mb-8">
-              <span className="flex h-2 w-2 rounded-full bg-brand-orange animate-pulse" />
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-black uppercase tracking-wider mb-8">
               <Sparkles className="w-3 h-3" />
               UAE&apos;s Premium Growth Agency
             </motion.div>
             
-            <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl font-black mb-8 leading-[0.9] tracking-tighter">
-              SCALE YOUR <br />
-              <span className="text-gradient drop-shadow-sm">BUSINESS</span> <br />
-              TO NEW HEIGHTS
+            <motion.h1 
+              variants={itemVariants} 
+              className="text-6xl md:text-8xl lg:text-[6.5rem] font-black mb-8 leading-[0.9] tracking-tighter text-brand-charcoal dark:text-white"
+            >
+              Digital <br />
+              <span className="text-brand-orange">Marketing</span> <br />
+              Solution
             </motion.h1>
             
-            <motion.p variants={itemVariants} className="text-xl text-brand-text/80 dark:text-gray-400 mb-10 max-w-xl leading-relaxed font-medium">
+            <motion.p variants={itemVariants} className="text-lg text-brand-text/60 dark:text-gray-400 mb-10 max-w-lg leading-relaxed font-medium">
               We design, build, and scale digital experiences that convert. Your end-to-end partner for SEO, AEO, and high-performance Web Solutions in the UAE.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 mb-12">
-              <Button size="lg" className="bg-gradient-brand text-white text-lg px-10 py-8 h-auto rounded-2xl shadow-xl shadow-brand-orange/20 hover:shadow-brand-orange/40 transition-all duration-300 hover:scale-105 active:scale-95 group">
-                Launch Your Project <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-10 py-8 h-auto border-2 rounded-2xl bg-white dark:bg-transparent hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-300">
-                View Solutions
+              <Button size="lg" className="bg-brand-orange hover:bg-brand-charcoal text-white text-lg px-12 py-7 h-auto rounded-full shadow-xl shadow-brand-orange/20 transition-all duration-300 transform hover:scale-105 active:scale-95 font-black uppercase tracking-widest">
+                Get Started
               </Button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-4 gap-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-               <div className="flex flex-col gap-1">
-                  <div className="text-2xl font-black text-brand-charcoal dark:text-white">500+</div>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-brand-text">Clients</div>
-               </div>
-               <div className="flex flex-col gap-1">
-                  <div className="text-2xl font-black text-brand-charcoal dark:text-white">99%</div>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-brand-text">Retention</div>
-               </div>
-               <div className="flex flex-col gap-1">
-                  <div className="text-2xl font-black text-brand-charcoal dark:text-white">10M+</div>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-brand-text">Revenue Generated</div>
-               </div>
-               <div className="flex flex-col gap-1">
-                  <div className="text-2xl font-black text-brand-charcoal dark:text-white">24/7</div>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-brand-text">Expert Support</div>
-               </div>
+            <motion.div variants={itemVariants} className="flex items-center gap-8 border-t border-gray-100 dark:border-white/10 pt-10">
+               {[
+                 { label: "Clients", value: "500+" },
+                 { label: "Success Rate", value: "99%" },
+               ].map((stat) => (
+                 <div key={stat.label} className="flex flex-col gap-0.5">
+                    <div className="text-3xl font-black text-brand-charcoal dark:text-white leading-none">{stat.value}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-brand-text/40">{stat.label}</div>
+                 </div>
+               ))}
             </motion.div>
           </motion.div>
 
+          {/* Right Image (Diamond Layout) */}
           <motion.div
-            initial={{ opacity: 0, x: 100, rotate: 5 }}
-            animate={{ opacity: 1, x: 0, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: "circOut" }}
-            className="relative"
+            className="relative flex justify-center"
           >
-            <div className="relative z-10 p-4 bg-white dark:bg-black/40 rounded-[2.5rem] shadow-2xl border border-white/20 backdrop-blur-sm group hover:scale-[1.02] transition-transform duration-700">
-               <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-[600px]">
-                  <Image 
-                    src="/hero-analytics.png"
-                    alt="Data Analytics"
-                    fill
-                    className="object-cover brightness-90 group-hover:scale-110 transition-transform duration-1000"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-transparent to-transparent" />
-                  
-                  {/* Overlay Stats Card */}
-                  <div className="absolute bottom-8 left-8 right-8 grid grid-cols-2 gap-4">
-                    <motion.div 
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 1, duration: 0.5 }}
-                      className="glass-card p-4 rounded-2xl bg-white/10 dark:bg-black/20"
-                    >
-                      <TrendingUp className="w-5 h-5 text-brand-orange mb-2" />
-                      <div className="text-xl font-bold text-white">+240%</div>
-                      <div className="text-[10px] uppercase text-white/60 font-bold">SEO Growth</div>
-                    </motion.div>
-                    <motion.div 
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 1.2, duration: 0.5 }}
-                      className="glass-card p-4 rounded-2xl bg-white/10 dark:bg-black/20"
-                    >
-                      <Target className="w-5 h-5 text-brand-coral mb-2" />
-                      <div className="text-xl font-bold text-white">12.5%</div>
-                      <div className="text-[10px] uppercase text-white/60 font-bold">Conv. Rate</div>
-                    </motion.div>
+            {/* The Diamond Container */}
+            <div className="relative w-full max-w-[500px] aspect-square">
+               {/* Thick Orange Frame */}
+               <div className="absolute inset-0 border-[16px] border-brand-orange rounded-[4rem] rotate-[8deg] -z-10 opacity-20" />
+               <div className="absolute inset-0 border-[4px] border-brand-charcoal dark:border-white/20 rounded-[4rem] rotate-[-4deg] -z-10" />
+               
+               <div className="relative w-full h-full bg-brand-charcoal rounded-[4rem] overflow-hidden transform rotate-[-8deg] shadow-3xl border-[12px] border-white dark:border-brand-charcoal">
+                  <div className="absolute inset-0 transform rotate-[8deg] scale-125">
+                     <Image 
+                       src="/about-dubai.png"
+                       alt="Collaborative Team"
+                       fill
+                       className="object-cover brightness-90 contrast-110"
+                       priority
+                     />
                   </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/40 transform rotate-[8deg]" />
                </div>
-            </div>
-            
-            {/* Absolute floating elements */}
-            <motion.div 
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-10 -right-10 w-40 h-40 bg-brand-orange/50 rounded-full blur-[80px] -z-10" 
-            />
-            <motion.div 
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-10 -left-10 w-48 h-48 bg-brand-coral/40 rounded-full blur-[80px] -z-10" 
-            />
 
-            <motion.div 
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className="absolute top-20 -left-12 p-5 bg-white dark:bg-brand-charcoal rounded-2xl shadow-2xl z-20 border border-gray-100 dark:border-white/5 animate-float"
-            >
-               <Zap className="w-8 h-8 text-brand-orange mb-2" />
-               <div className="text-xs font-bold uppercase tracking-tighter text-muted-foreground">Speed Score</div>
-               <div className="text-2xl font-black">99/100</div>
-            </motion.div>
+               {/* Trusted Clients Badge */}
+               <motion.div 
+                 initial={{ y: 20, opacity: 0 }}
+                 animate={{ y: 0, opacity: 1 }}
+                 transition={{ delay: 1, duration: 0.8 }}
+                 className="absolute -bottom-6 -left-6 md:-left-12 bg-white dark:bg-brand-charcoal p-3 px-6 rounded-full shadow-2xl border-4 border-brand-orange flex items-center gap-4 z-20"
+               >
+                  <div className="flex -space-x-3">
+                     {[1,2,3].map(i => (
+                        <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+                           <Image src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" width={40} height={40} />
+                        </div>
+                     ))}
+                  </div>
+                  <div className="flex flex-col">
+                     <div className="text-brand-charcoal dark:text-white font-black text-sm leading-tight">30K+ Trusted</div>
+                     <div className="text-[10px] font-bold text-brand-orange uppercase tracking-tighter">Global Clients</div>
+                  </div>
+               </motion.div>
+
+               {/* Floating Icon */}
+               <motion.div 
+                 animate={{ y: [0, -15, 0] }}
+                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                 className="absolute -top-10 -right-4 w-20 h-20 bg-brand-orange rounded-3xl flex items-center justify-center shadow-2xl z-20 transform rotate-12"
+               >
+                  <Zap className="w-10 h-10 text-white fill-white" />
+               </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-10 left-10 flex flex-col items-center gap-2 pointer-events-none"
+      >
+        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-charcoal/20 dark:text-white/20">Scroll</span>
+        <motion.div 
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-1 h-12 rounded-full bg-gradient-to-b from-brand-orange to-transparent"
+        />
+      </motion.div>
     </section>
   );
 }

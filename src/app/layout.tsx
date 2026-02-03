@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 const outfit = Outfit({
   variable: "--font-outfit",
+  subsets: ["latin"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
 });
 
@@ -32,7 +32,7 @@ export default function RootLayout({
         <link rel="icon" href="/fevic.png" sizes="any" />
       </head>
       <body
-        className={`${inter.variable} ${outfit.variable} font-sans antialiased`}
+        className={`${plusJakartaSans.variable} ${outfit.variable} font-sans antialiased`}
       >
         <div className="animate-noise" />
         <Navbar />
