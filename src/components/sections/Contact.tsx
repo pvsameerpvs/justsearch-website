@@ -11,7 +11,7 @@ const team = [
     name: "Rijo Varghese",
     role: "Business Development Manager",
     phone: "+971 55 615 2440",
-    email: "mehran@justsearch.ae",
+    email: "rijotsearch.ae",
     image: "R"
   },
   {
@@ -22,11 +22,11 @@ const team = [
     image: "S"
   },
   {
-    name: "Mehran A",
+    name: "Vineet",
     role: "Digital Sales Consultant",
     phone: "+971 55 615 2440",
-    email: "mehran@justsearch.ae",
-    image: "M"
+    email: "vineet@justsearch.ae",
+    image: "V"
   },
   {
     name: "Sewmini D",
@@ -36,12 +36,12 @@ const team = [
     image: "S"
   },
   {
-    name: "Maya",
-    role: "Digital Sales Consultant",
-    phone: "+971 58 538 8122",
-    email: "maya@justsearch.ae",
-    image: "M"
-  }
+    name: "Pooja",
+    role: "HR",
+    phone: "+971 55 615 2440",
+    email: "pooja@justsearch.ae",
+    image: "P"
+  },
 ];
 
 export function Contact() {
