@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, type Variants, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Sparkles, Zap, TrendingUp, Target } from "lucide-react";
 import Image from "next/image";
@@ -23,7 +23,7 @@ export function Hero() {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -34,9 +34,13 @@ export function Hero() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+    },
   };
 
   useEffect(() => {
@@ -98,17 +102,7 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-8 border-t border-gray-100 dark:border-white/10 pt-10">
-               {[
-                 { label: "Clients", value: "500+" },
-                 { label: "Success Rate", value: "99%" },
-               ].map((stat) => (
-                 <div key={stat.label} className="flex flex-col gap-0.5">
-                    <div className="text-3xl font-black text-brand-charcoal dark:text-white leading-none">{stat.value}</div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-brand-text/40">{stat.label}</div>
-                 </div>
-               ))}
-            </motion.div>
+           
           </motion.div>
 
           {/* Right Image (Diamond Layout) */}
@@ -174,19 +168,7 @@ export function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-10 flex flex-col items-center gap-2 pointer-events-none"
-      >
-        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-charcoal/20 dark:text-white/20">Scroll</span>
-        <motion.div 
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-1 h-12 rounded-full bg-gradient-to-b from-brand-orange to-transparent"
-        />
-      </motion.div>
+     
     </section>
   );
 }

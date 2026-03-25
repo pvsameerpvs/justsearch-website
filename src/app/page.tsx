@@ -4,21 +4,26 @@ import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { Solutions } from "@/components/sections/Solutions";
 import { Works } from "@/components/sections/Works";
+import { PosterShowcase } from "@/components/sections/PosterShowcase";
 import { Pricing } from "@/components/sections/Pricing";
 import { PortfolioDownload } from "@/components/sections/PortfolioDownload";
 import { Contact } from "@/components/sections/Contact";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      <TrustedClients />
+    
       <About />
       <Services />
       <Solutions />
       <Works />
+      <PosterShowcase />
       <Pricing />
       <PortfolioDownload />
+      <TrustedClients />
+      <GoogleReviews />
       <Contact />
     </main>
   );
