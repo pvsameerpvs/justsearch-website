@@ -24,7 +24,56 @@ const reelProjects = [
   { link: "https://www.instagram.com/reel/DWRhkm5Df9v/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==", cover: "/reels/reel-08.jpg" },
 ];
 
+const posters = Array.from({ length: 44 }, (_, i) => `/poster-${i + 1}.jpeg`);
+
+function splitIntoRows(items: string[], rowCount: number) {
+  const rows: string[][] = [];
+  let start = 0;
+  const baseSize = Math.floor(items.length / rowCount);
+  const remainder = items.length % rowCount;
+
+  for (let i = 0; i < rowCount; i += 1) {
+    const size = baseSize + (i < remainder ? 1 : 0);
+    rows.push(items.slice(start, start + size));
+    start += size;
+  }
+
+  return rows;
+}
+
+function PosterRow({ row, rowIndex }: { row: string[]; rowIndex: number }) {
+  const moveRight = rowIndex % 2 === 0;
+  const rowItems = [...row, ...row];
+
+  return (
+    <div className="relative overflow-hidden">
+      <motion.div
+        animate={{ x: moveRight ? ["-50%", "0%"] : ["0%", "-50%"] }}
+        transition={{ duration: 34 + rowIndex * 4, repeat: Infinity, ease: "linear" }}
+        className="flex w-max gap-4"
+      >
+        {rowItems.map((src, i) => (
+          <div
+            key={`${src}-${i}`}
+            className="relative w-[140px] sm:w-[160px] md:w-[170px] aspect-[3/4] rounded-2xl border border-gray-200 dark:border-white/15 bg-white dark:bg-white/[0.04] overflow-hidden shrink-0 shadow-sm"
+          >
+            <Image
+              src={src}
+              alt={`Poster ${((i % row.length) + 1).toString()}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 140px, 170px"
+            />
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 export function Works() {
+  const posterRows = splitIntoRows(posters, 6);
+
   return (
     <section id="works" className="py-32 bg-white dark:bg-[#0d1117] relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-700/20 [mask-image:linear-gradient(to_bottom,transparent,black,transparent)] -z-10" />
@@ -53,7 +102,7 @@ export function Works() {
             transition={{ delay: 0.2 }}
             className="text-brand-text/70 dark:text-gray-300 max-w-3xl mx-auto text-xl leading-relaxed font-medium"
           >
-            A quick look at our website builds and social media reels.
+            A quick look at our website builds, social media reels, and poster designs.
           </motion.p>
         </div>
 
@@ -123,6 +172,15 @@ export function Works() {
                   Watch on Instagram
                 </div>
               </motion.a>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-24">
+          <h3 className="text-3xl md:text-5xl font-black tracking-tight mb-10">Poster Designs</h3>
+          <div className="space-y-4">
+            {posterRows.map((row, rowIndex) => (
+              <PosterRow key={rowIndex} row={row} rowIndex={rowIndex} />
             ))}
           </div>
         </div>
