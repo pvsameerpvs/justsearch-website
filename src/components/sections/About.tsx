@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Globe2, Target, Users2, Building2, Trophy, BarChart3, Fingerprint } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const stats = [
   { label: "Successful Launch", value: "500+", icon: Trophy },
@@ -12,6 +13,8 @@ const stats = [
 ];
 
 export function About() {
+  const [aboutImage, setAboutImage] = useState("/about-team.png");
+
   return (
     <section id="about" className="py-32 relative overflow-hidden bg-brand-charcoal text-white">
       {/* Premium Dark Background */}
@@ -22,78 +25,69 @@ export function About() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
+        <div className="mb-32">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-center mb-14"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-orange text-xs font-black uppercase tracking-[0.3em] mb-8"
-            >
+            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-orange text-xs font-black uppercase tracking-[0.3em] mb-8">
               Our DNA
-            </motion.div>
-            <h2 className="text-5xl md:text-8xl text-white font-black mb-10 tracking-tighter leading-[0.9]">
-              ARCHITECTING <br />
-              <span className="text-brand-orange">DIGITAL</span> DOMINANCE.
+            </div>
+            <h2 className="text-5xl md:text-8xl text-white font-black tracking-tighter leading-[0.9]">
+              ARCHITECTING <span className="text-brand-orange">DIGITAL</span> DOMINANCE.
             </h2>
-            <p className="text-xl text-gray-200/90 mb-10 leading-relaxed font-medium max-w-xl">
-              JustSearch is not just an agency; we are a growth engine. Based in Dubai, we decode the UAE market context and build high-performance digital ecosystems for forward-thinking brands.
-            </p>
-            
-            <div className="space-y-6 mb-12">
-               {[
-                 { icon: Globe2, title: "UAE Market Specialists", desc: "Native understanding of local consumer behavior and search patterns." },
-                 { icon: Fingerprint, title: "Data-First Strategy", desc: "Every move we make is backed by deep analytics and behavioral data." },
-                 { icon: Target, title: "ROI Centric Approach", desc: "We focus on outcomes, not just outputs. Your growth is our metric." }
-               ].map((item, i) => (
-                 <motion.div 
-                   key={item.title}
-                   initial={{ opacity: 0, y: 20 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   transition={{ delay: i * 0.1 }}
-                   className="flex items-start gap-6 p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-brand-orange/30 transition-colors group"
-                 >
-                    <div className="w-12 h-12 rounded-2xl bg-brand-orange/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                       <item.icon className="w-6 h-6 text-brand-orange" />
-                    </div>
-                    <div>
-                       <h4 className="text-xl text-white font-bold mb-1">{item.title}</h4>
-                       <p className="text-gray-200/90 text-sm font-medium">{item.desc}</p>
-                    </div>
-                 </motion.div>
-               ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9 }}
+            className="relative w-screen left-1/2 -translate-x-1/2 mb-14"
+          >
+            <div className="relative overflow-hidden aspect-[16/9] bg-brand-charcoal/70">
+              <Image
+                src={aboutImage}
+                alt="JustSearch Team"
+                fill
+                className="object-cover object-center"
+                onError={() => setAboutImage("/team-a.png")}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/35 to-transparent" />
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            className="relative"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="max-w-5xl mx-auto"
           >
-            <div className="relative z-10 p-2 bg-gradient-to-br from-white/10 to-transparent rounded-[3rem] border border-white/10">
-               <div className="relative rounded-[2.9rem] overflow-hidden aspect-square">
-                  <Image 
-                    src="/about-dubai.png"
-                    alt="Dubai Tech Scene"
-                    fill
-                    className="object-cover brightness-75 hover:scale-105 transition-transform duration-1000"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-transparent to-transparent" />
-                  
-                  {/* Floating badge inside image */}
-                  <div className="absolute bottom-10 left-10 p-6 glass-card rounded-2xl border-white/20">
-                     <div className="text-4xl font-black text-brand-orange mb-1">10+</div>
-                     <div className="text-[10px] font-black uppercase tracking-widest text-white/70">Years of Experience</div>
+            <p className="text-xl text-gray-200/90 mb-10 leading-relaxed font-medium text-center">
+              JustSearch is not just an agency; we are a growth engine. Based in Dubai, we decode the UAE market context and build high-performance digital ecosystems for forward-thinking brands.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { icon: Globe2, title: "UAE Market Specialists", desc: "Native understanding of local consumer behavior and search patterns." },
+                { icon: Fingerprint, title: "Data-First Strategy", desc: "Every move we make is backed by deep analytics and behavioral data." },
+                { icon: Target, title: "ROI Centric Approach", desc: "We focus on outcomes, not just outputs. Your growth is our metric." }
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-brand-orange/30 transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-brand-orange/10 flex items-center justify-center mb-4">
+                    <item.icon className="w-6 h-6 text-brand-orange" />
                   </div>
-               </div>
+                  <h4 className="text-xl text-white font-bold mb-2">{item.title}</h4>
+                  <p className="text-gray-200/90 text-sm font-medium">{item.desc}</p>
+                </motion.div>
+              ))}
             </div>
-            
-            {/* Massive decorative background blur */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-orange/10 blur-[120px] -z-10" />
           </motion.div>
         </div>
 
