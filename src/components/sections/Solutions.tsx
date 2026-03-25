@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, Users, Target, Rocket, PieChart, Sparkles, Zap, Shield } from "lucide-react";
+import { TrendingUp, Target, Rocket, Sparkles, Zap, Shield } from "lucide-react";
+import Image from "next/image";
 
 const solutions = [
   {
@@ -111,14 +112,20 @@ export function Solutions() {
                  
                  <div className="mt-12 flex gap-4">
                     <div className="flex -space-x-4">
-                       {[1,2,3,4].map(i => (
-                         <div key={i} className={`w-12 h-12 rounded-full border-4 border-white dark:border-brand-charcoal overflow-hidden bg-gray-${100 * i}`}>
-                            <div className="w-full h-full flex items-center justify-center text-[10px] font-black text-gray-500">U{i}</div>
+                       {[22, 31, 47, 56].map((imgId, idx) => (
+                         <div key={imgId} className="w-12 h-12 rounded-full border-4 border-white dark:border-brand-charcoal overflow-hidden bg-gray-200">
+                            <Image
+                              src={`https://i.pravatar.cc/100?img=${imgId}`}
+                              alt={`New client ${idx + 1}`}
+                              width={48}
+                              height={48}
+                              className="w-full h-full object-cover"
+                            />
                          </div>
                        ))}
                     </div>
                     <div className="text-left">
-                       <div className="text-xs font-black uppercase tracking-widest text-brand-text">Joined Today</div>
+                       <div className="text-xs font-black uppercase tracking-widest text-brand-text dark:text-gray-200">Joined Today</div>
                        <div className="text-[10px] font-bold text-green-500">+12 Local Businesses</div>
                     </div>
                  </div>

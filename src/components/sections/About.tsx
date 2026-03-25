@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Globe2, Target, Users2, Building2, Trophy, BarChart3, Fingerprint } from "lucide-react";
+import { Globe2, Target, Users2, Building2, Trophy, BarChart3, Fingerprint } from "lucide-react";
 import Image from "next/image";
 
 const stats = [
@@ -35,11 +35,11 @@ export function About() {
             >
               Our DNA
             </motion.div>
-            <h2 className="text-5xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.9]">
+            <h2 className="text-5xl md:text-8xl text-white font-black mb-10 tracking-tighter leading-[0.9]">
               ARCHITECTING <br />
               <span className="text-brand-orange">DIGITAL</span> DOMINANCE.
             </h2>
-            <p className="text-xl text-gray-400 mb-10 leading-relaxed font-medium max-w-xl">
+            <p className="text-xl text-gray-200/90 mb-10 leading-relaxed font-medium max-w-xl">
               JustSearch is not just an agency; we are a growth engine. Based in Dubai, we decode the UAE market context and build high-performance digital ecosystems for forward-thinking brands.
             </p>
             
@@ -60,8 +60,8 @@ export function About() {
                        <item.icon className="w-6 h-6 text-brand-orange" />
                     </div>
                     <div>
-                       <h4 className="text-xl font-bold mb-1">{item.title}</h4>
-                       <p className="text-gray-400 text-sm font-medium">{item.desc}</p>
+                       <h4 className="text-xl text-white font-bold mb-1">{item.title}</h4>
+                       <p className="text-gray-200/90 text-sm font-medium">{item.desc}</p>
                     </div>
                  </motion.div>
                ))}
@@ -113,7 +113,7 @@ export function About() {
               <div className="text-5xl font-black mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-500">
                 {stat.value}
               </div>
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 group-hover:text-brand-orange transition-colors">
+              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-300 group-hover:text-brand-orange transition-colors">
                 {stat.label}
               </div>
             </motion.div>

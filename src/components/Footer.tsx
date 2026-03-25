@@ -53,9 +53,10 @@ export function Footer() {
         
         <div className="pt-8 border-t border-white/5 flex flex-col md:row items-center justify-between gap-4 text-xs text-gray-500 font-bold uppercase tracking-widest">
            <div>© {new Date().getFullYear()} JustSearch UAE. All Rights Reserved.</div>
-           <div className="flex gap-8">
+           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-8 normal-case text-center md:text-left">
               <span>www.justsearch.ae</span>
-              <span>Dubai, UAE</span>
+              <span>justsearch.ae@gmail.com</span>
+              <span>Rega, DAMAS TOWER - Al Maktoum Rd - Riggat Al Buteen - Dubai</span>
            </div>
         </div>
       </div>

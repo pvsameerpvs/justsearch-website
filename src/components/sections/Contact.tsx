@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Phone, MapPin, Send, Instagram, Linkedin, Twitter, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Instagram, Linkedin, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 const team = [
@@ -46,6 +46,10 @@ const team = [
 
 export function Contact() {
   const [formState, setFormState] = useState("idle");
+  const socialLinks = [
+    { icon: Instagram, href: "https://www.instagram.com/justsearch_dir/", label: "Instagram" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/justsearchuae/posts/?feedView=all", label: "LinkedIn" },
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,8 +90,8 @@ export function Contact() {
             <div className="space-y-12 mb-16">
               {[
                 { icon: Phone, label: "Call Us", value: "+971 55 615 2440", sub: "Available 9am - 6pm GST" },
-                { icon: Mail, label: "Email Us", value: "hello@justsearch.ae", sub: "Fast response within 24h" },
-                { icon: MapPin, label: "Visit Us", value: "Business Bay, Dubai, UAE", sub: "Creative Hub" }
+                { icon: Mail, label: "Email Us", value: "justsearch.ae@gmail.com", sub: "Fast response within 24h" },
+                { icon: MapPin, label: "Visit Us", value: "Rega, DAMAS TOWER - Al Maktoum Rd - Riggat Al Buteen - Dubai", sub: "Office Address" }
               ].map((item, i) => (
                 <motion.div 
                   key={item.label}
@@ -109,14 +113,18 @@ export function Contact() {
             </div>
 
             <div className="flex gap-4">
-               {[Instagram, Linkedin, Twitter].map((Icon, i) => (
-                 <motion.button
-                   key={i}
+               {socialLinks.map((item) => (
+                 <motion.a
+                   key={item.label}
                    whileHover={{ y: -5, scale: 1.1 }}
+                   href={item.href}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label={item.label}
                    className="w-12 h-12 rounded-xl bg-gray-50 dark:bg-white/5 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all duration-300"
                  >
-                   <Icon className="w-5 h-5" />
-                 </motion.button>
+                   <item.icon className="w-5 h-5" />
+                 </motion.a>
                ))}
             </div>
           </div>
