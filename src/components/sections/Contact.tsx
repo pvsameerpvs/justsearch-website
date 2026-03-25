@@ -10,37 +10,37 @@ const team = [
   {
     name: "Rijo Varghese",
     role: "Business Development Manager",
-    phone: "+971 55 615 2440",
+    phone: "+971 554617275",
     email: "rijotsearch.ae",
     image: "R"
   },
   {
     name: "Samuel D",
     role: "Digital Sales Consultant",
-    phone: "+971 52 534 8311",
+    phone: "+971 556152440",
     email: "samuel@justsearch.ae",
     image: "S"
   },
   {
     name: "Vineet",
     role: "Digital Sales Consultant",
-    phone: "+971 55 615 2440",
+    phone: "+971 55 4615018",
     email: "vineet@justsearch.ae",
     image: "V"
   },
   {
+    name: "Affan",
+    role: "Digital Sales Consultant",
+    phone: "+971 526480723",
+    email: "affan@justsearch.ae",
+    image: "A"
+  },
+   {
     name: "Sewmini D",
     role: "Digital Sales Consultant",
-    phone: "+971 54 220 5493",
+    phone: "+971 585899545",
     email: "sewmini@justsearch.ae",
     image: "S"
-  },
-  {
-    name: "Pooja",
-    role: "HR",
-    phone: "+971 55 615 2440",
-    email: "pooja@justsearch.ae",
-    image: "P"
   },
 ];
 
@@ -89,7 +89,7 @@ export function Contact() {
 
             <div className="space-y-12 mb-16">
               {[
-                { icon: Phone, label: "Call Us", value: "+971 55 615 2440", sub: "Available 9am - 6pm GST" },
+                { icon: Phone, label: "Call Us", value: "+971 554617275", sub: "Available 9am - 6pm GST" },
                 { icon: Mail, label: "Email Us", value: "justsearch.ae@gmail.com", sub: "Fast response within 24h" },
                 { icon: MapPin, label: "Visit Us", value: "Rega, DAMAS TOWER - Al Maktoum Rd - Riggat Al Buteen - Dubai", sub: "Office Address" }
               ].map((item, i) => (

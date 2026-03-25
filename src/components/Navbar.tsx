@@ -86,7 +86,7 @@ export function Navbar() {
             (!isScrolled && isHome) ? "dark:text-white" : ""
           )}>
             <Phone className="w-4 h-4 mr-2" />
-            +971 55 615 2440
+            +971 554617275
           </Button>
           <Button className="bg-gradient-brand hover:opacity-90 shadow-lg shadow-brand-orange/20 rounded-xl px-8 font-black text-xs uppercase tracking-widest group">
             Consult <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

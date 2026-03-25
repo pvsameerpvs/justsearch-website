@@ -55,6 +55,7 @@ export function Footer() {
            <div>© {new Date().getFullYear()} JustSearch UAE. All Rights Reserved.</div>
            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-8 normal-case text-center md:text-left">
               <span>www.justsearch.ae</span>
+              <span>+971 554617275</span>
               <span>justsearch.ae@gmail.com</span>
               <span>Rega, DAMAS TOWER - Al Maktoum Rd - Riggat Al Buteen - Dubai</span>
            </div>
