@@ -3,6 +3,7 @@ import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { Solutions } from "@/components/sections/Solutions";
 import { Pricing } from "@/components/sections/Pricing";
+import { PortfolioDownload } from "@/components/sections/PortfolioDownload";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Services />
       <Solutions />
       <Pricing />
+      <PortfolioDownload />
       <Contact />
     </main>
   );
