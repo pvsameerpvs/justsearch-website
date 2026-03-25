@@ -4,10 +4,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Sparkles, Zap, TrendingUp, Target } from "lucide-react";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const heroSlides = [
+  "/hero-1.png",
+  "/hero-2.png",
+  "/hero-3.png",
+  "/hero-4.png",
+  "/hero-5.png",
+  "/hero-6.png",
+];
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
@@ -22,12 +32,20 @@ export function Hero() {
         delayChildren: 0.3,
       },
     },
-  } as any;
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
-  } as any;
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 2800);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section 
@@ -108,13 +126,16 @@ export function Hero() {
                
                <div className="relative w-full h-full bg-brand-charcoal rounded-[4rem] overflow-hidden transform rotate-[-8deg] shadow-3xl border-[12px] border-white dark:border-brand-charcoal">
                   <div className="absolute inset-0 transform rotate-[8deg] scale-125">
-                     <Image 
-                       src="/about-dubai.png"
-                       alt="Collaborative Team"
-                       fill
-                       className="object-cover brightness-90 contrast-110"
-                       priority
-                     />
+                    {heroSlides.map((slide, index) => (
+                      <Image
+                        key={slide}
+                        src={slide}
+                        alt={`JustSearch Hero ${index + 1}`}
+                        fill
+                        className={`object-cover brightness-90 contrast-110 transition-opacity duration-700 ${index === activeSlide ? "opacity-100" : "opacity-0"}`}
+                        priority={index === 0}
+                      />
+                    ))}
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/40 transform rotate-[8deg]" />
                </div>
