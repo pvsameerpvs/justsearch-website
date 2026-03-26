@@ -93,7 +93,7 @@ export function Hero() {
 
       <div
         className={`absolute left-1/2 z-20 w-full px-4 sm:px-6 text-center transition-all duration-1000 ease-in-out transform -translate-x-1/2 ${
-          introFinished ? "top-28 sm:top-32 md:top-40 translate-y-0" : "top-1/2 -translate-y-1/2"
+          introFinished ? "bottom-10 sm:bottom-12 md:bottom-16 translate-y-0" : "top-1/2 -translate-y-1/2"
         }`}
       >
         <h1
@@ -122,14 +122,7 @@ export function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div 
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 transition-opacity duration-1000 delay-1000 ${
-           introFinished ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <p className="text-white/60 text-[10px] font-black tracking-[0.3em] uppercase animate-pulse">Scroll</p>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-brand-orange to-transparent opacity-80" />
-      </div>
+     
     </section>
   );
 }
