@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Outfit, Spectral } from "next/font/google";
 import "./globals.css";
+import { DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE, SITE_NAME, getSiteUrl } from "@/lib/seo";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -19,19 +20,28 @@ const spectral = Spectral({
   subsets: ["latin"],
 });
 
-function getMetadataBase() {
-  try {
-    return new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://justsearch.ae");
-  } catch {
-    return new URL("https://justsearch.ae");
-  }
-}
+const metadataBase = new URL(getSiteUrl());
 
 export const metadata: Metadata = {
-  metadataBase: getMetadataBase(),
+  metadataBase,
+  alternates: {
+    canonical: "/",
+  },
   title: "JustSearch UAE | Complete Digital Growth Partner",
-  description: "UAE-focused digital marketing and business listing platform. We help local businesses grow online, generate quality leads, and build a strong digital presence.",
+  description: DEFAULT_DESCRIPTION,
   keywords: ["digital marketing UAE", "business directory UAE", "website development Dubai", "SEO UAE", "lead generation UAE"],
+  category: "marketing",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/fevic.png",
     shortcut: "/fevic.png",
@@ -39,22 +49,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "JustSearch UAE | Complete Digital Growth Partner",
-    description: "UAE-focused digital marketing and business listing platform. We help local businesses grow online, generate quality leads, and build a strong digital presence.",
+    description: DEFAULT_DESCRIPTION,
+    siteName: SITE_NAME,
+    locale: "en_US",
     images: [
       {
-        url: "/fevic.png",
+        url: DEFAULT_OG_IMAGE,
         width: 364,
         height: 355,
         alt: "JustSearch icon",
       },
     ],
+    url: "/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "JustSearch UAE | Complete Digital Growth Partner",
-    description: "UAE-focused digital marketing and business listing platform. We help local businesses grow online, generate quality leads, and build a strong digital presence.",
-    images: ["/fevic.png"],
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 
@@ -66,6 +79,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteUrl = getSiteUrl();
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: siteUrl,
+    logo: `${siteUrl}/logo-js.png`,
+    email: "info@justsearch.com",
+    telephone: "+971554617275",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Rega, Damas Tower - Al Maktoum Rd - Riggat Al Buteen",
+      addressLocality: "Dubai",
+      addressCountry: "AE",
+    },
+    sameAs: [
+      "https://www.instagram.com/justsearch_dir/",
+      "https://www.linkedin.com/company/justsearchuae/posts/?feedView=all",
+    ],
+  };
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: siteUrl,
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -76,6 +116,14 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${outfit.variable} ${spectral.variable} font-sans antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <div className="animate-noise" />
         <Navbar />
         {children}

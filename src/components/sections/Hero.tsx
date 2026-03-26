@@ -1,13 +1,130 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Sparkles, Sky, Stars } from "@react-three/drei";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { Sky, Stars } from "@react-three/drei";
 import { motion } from "framer-motion";
 import * as THREE from "three";
 
 const INTRO_DURATION_MS = 2000;
 const HERO_LINE = "Just Search Digital Excellence";
+const ICON_PARTICLE_COUNT = 120;
+
+const SOCIAL_ICON_PATHS = [
+  "/social-icons/facebook.svg",
+  "/social-icons/instagram.svg",
+  "/social-icons/linkedin.svg",
+  "/social-icons/youtube.svg",
+  "/social-icons/x.svg",
+  "/social-icons/tiktok.svg",
+  "/social-icons/whatsapp.svg",
+  "/social-icons/snapchat.svg",
+  "/social-icons/pinterest.svg",
+  "/social-icons/reddit.svg",
+];
+
+type SocialParticle = {
+  platformIndex: number;
+  baseX: number;
+  baseY: number;
+  baseZ: number;
+  scale: number;
+  speed: number;
+  phase: number;
+};
+
+function seededRandom(seed: number) {
+  const value = Math.sin(seed * 9283.133 + 0.217) * 43758.5453;
+  return value - Math.floor(value);
+}
+
+function SocialIconCloud() {
+  const groupRef = useRef<THREE.Group>(null);
+  const spriteRefs = useRef<Array<THREE.Sprite | null>>([]);
+  const textures = useLoader(THREE.TextureLoader, SOCIAL_ICON_PATHS);
+
+  const particles = useMemo<SocialParticle[]>(() => {
+    return Array.from({ length: ICON_PARTICLE_COUNT }, (_, index) => {
+      const platformIndex = index % SOCIAL_ICON_PATHS.length;
+      const xRand = seededRandom(index * 3 + 1);
+      const yRand = seededRandom(index * 3 + 2);
+      const zRand = seededRandom(index * 3 + 3);
+      const scaleRand = seededRandom(index * 5 + 4);
+      const speedRand = seededRandom(index * 7 + 5);
+      const phaseRand = seededRandom(index * 11 + 6);
+
+      return {
+        platformIndex,
+        baseX: (xRand - 0.5) * 18,
+        baseY: (yRand - 0.5) * 10,
+        baseZ: (zRand - 0.5) * 8,
+        scale: 0.22 + scaleRand * 0.12,
+        speed: 0.25 + speedRand * 0.35,
+        phase: phaseRand * Math.PI * 2,
+      };
+    });
+  }, []);
+
+  useEffect(() => {
+    textures.forEach((texture) => {
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.minFilter = THREE.LinearFilter;
+      texture.magFilter = THREE.LinearFilter;
+      texture.needsUpdate = true;
+    });
+  }, [textures]);
+
+  useFrame(({ clock }) => {
+    const time = clock.elapsedTime;
+
+    if (groupRef.current) {
+      groupRef.current.rotation.y = Math.sin(time * 0.14) * 0.2;
+      groupRef.current.rotation.x = Math.cos(time * 0.08) * 0.08;
+    }
+
+    spriteRefs.current.forEach((sprite, index) => {
+      const particle = particles[index];
+      if (!sprite || !particle) {
+        return;
+      }
+
+      const wave = time * particle.speed + particle.phase;
+      sprite.position.set(
+        particle.baseX + Math.cos(wave) * 0.45,
+        particle.baseY + Math.sin(wave * 1.35) * 0.35,
+        particle.baseZ + Math.sin(wave * 0.8) * 0.3
+      );
+    });
+  });
+
+  return (
+    <group ref={groupRef}>
+      {particles.map((particle, index) => {
+        const texture = textures[particle.platformIndex];
+
+        return (
+          <sprite
+            key={index}
+            ref={(node) => {
+              spriteRefs.current[index] = node;
+            }}
+            position={[particle.baseX, particle.baseY, particle.baseZ]}
+            scale={[particle.scale, particle.scale, 1]}
+          >
+            <spriteMaterial
+              map={texture}
+              color="#ffffff"
+              transparent
+              alphaTest={0.12}
+              opacity={0.94}
+              depthWrite={false}
+            />
+          </sprite>
+        );
+      })}
+    </group>
+  );
+}
 
 function SkyTouchBackground() {
   return (
@@ -28,10 +145,9 @@ function SkyTouchBackground() {
         mieDirectionalG={0.8}
       />
       
-      {/* Atmospheric depth via twinkling stars and floating orange/white particles */}
+      {/* Atmospheric depth via twinkling stars and floating social icon particles */}
       <Stars radius={50} depth={50} count={3000} factor={4} saturation={1} fade speed={2} />
-      <Sparkles count={500} scale={20} size={6} speed={2} opacity={0.6} color="#F26A4B" />
-      <Sparkles count={300} scale={20} size={4} speed={1} opacity={0.4} color="#ffffff" />
+      <SocialIconCloud />
     </>
   );
 }

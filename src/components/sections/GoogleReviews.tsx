@@ -6,7 +6,7 @@ export function GoogleReviews() {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
+        <h2 className="uniform-header-title uniform-header-title-light text-center mb-10">What Our Clients Say</h2>
         
         {/* Load the Elfsight script using Next.js optimized Script component */}
         <Script src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" />

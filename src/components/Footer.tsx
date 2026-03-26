@@ -54,7 +54,7 @@ export function Footer() {
         <div className="pt-8 border-t border-white/5 flex flex-col md:row items-center justify-between gap-4 text-xs text-gray-500 font-bold uppercase tracking-widest">
            <div>© {new Date().getFullYear()} JustSearch UAE. All Rights Reserved.</div>
            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-8 normal-case text-center md:text-left">
-              <span>www.justsearch.ae</span>
+              <span>www.justsearchwebdesign.com</span>
               <span>+971 554617275</span>
               <span>info@justsearch.com</span>
               <span>Rega, Damas Tower - Al Maktoum Rd - Riggat Al Buteen - Dubai</span>

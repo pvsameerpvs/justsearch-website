@@ -124,6 +124,30 @@
 }
 
 @layer utilities {
+  .uniform-header-kicker {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-[10px] sm:text-xs font-black uppercase tracking-[0.25em];
+  }
+
+  .uniform-header-kicker-dark {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-brand-orange text-[10px] sm:text-xs font-black uppercase tracking-[0.25em];
+  }
+
+  .uniform-header-title {
+    @apply text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[0.95] uppercase;
+  }
+
+  .uniform-header-title-light {
+    @apply text-brand-charcoal dark:text-white;
+  }
+
+  .uniform-header-title-dark {
+    @apply text-white;
+  }
+
+  .uniform-header-description {
+    @apply text-base md:text-lg leading-relaxed font-medium;
+  }
+
   .glass {
     @apply bg-white/70 dark:bg-black/60 backdrop-blur-xl border-b border-white/20 dark:border-white/5;
   }

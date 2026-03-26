@@ -197,7 +197,7 @@ export function Pricing() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-orange text-xs font-black uppercase tracking-[0.3em] mb-6"
+            className="uniform-header-kicker-dark mb-6"
           >
             Packages
           </motion.div>
@@ -205,7 +205,7 @@ export function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-white text-5xl md:text-8xl font-black tracking-tighter mb-8"
+            className="uniform-header-title uniform-header-title-dark mb-8"
           >
             PLANS & <span className="text-brand-orange">PACKAGES</span>
           </motion.h2>
@@ -213,7 +213,7 @@ export function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-200/90 max-w-3xl mx-auto text-xl leading-relaxed"
+            className="uniform-header-description text-gray-200/90 max-w-3xl mx-auto"
           >
             Flexible service bundles for non-linear growth. Choose a roadmap that aligns with your business velocity.
           </motion.p>

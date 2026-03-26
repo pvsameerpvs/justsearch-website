@@ -20,16 +20,16 @@ export function PortfolioDownload() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/15 text-brand-orange text-[10px] font-black uppercase tracking-[0.25em] mb-6">
+            <div className="uniform-header-kicker-dark mb-6">
               <BriefcaseBusiness className="w-4 h-4" />
               Company Portfolio
             </div>
-            <h2 className="text-white text-4xl md:text-6xl font-black tracking-tighter leading-[0.95] mb-6">
-              DOWNLOAD OUR
+            <h2 className="uniform-header-title uniform-header-title-dark mb-6">
+              DOWNLOAD  OUR
               <br />
               <span className="text-brand-orange">PORTFOLIO</span>
             </h2>
-            <p className="text-gray-200/90 text-lg leading-relaxed max-w-2xl mb-8">
+            <p className="uniform-header-description text-gray-200/90 max-w-2xl mb-8">
               Get the official JustSearch company portfolio with our services, delivery approach, case studies, and execution model.
             </p>
 

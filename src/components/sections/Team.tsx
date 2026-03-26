@@ -30,7 +30,7 @@ const teamGroups: { title: string; members: TeamMember[] }[] = [
     ],
   },
   {
-    title: "Developer Team",
+    title: "Developers Team",
     members: [
       { name: "Shon", photo: "/team/shon.jpg" },
       { name: "Sameer", photo: "/team/sameer.jpeg" },
@@ -105,11 +105,11 @@ export function Team() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-4">
+          <h2 className="uniform-header-title uniform-header-title-dark mb-4">
             <span className="text-white">Meet </span>
             <span className="text-brand-orange">Our Team</span>
           </h2>
-          <p className="text-slate-200 text-base md:text-lg font-medium max-w-3xl mx-auto">
+          <p className="uniform-header-description text-slate-200 max-w-3xl mx-auto">
             Our talented professionals are dedicated to bringing your digital vision to life with creativity, expertise, and passion.
           </p>
         </div>

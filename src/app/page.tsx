@@ -1,6 +1,6 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { TrustedClients } from "@/components/sections/TrustedClients";
-import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { Solutions } from "@/components/sections/Solutions";
 import { Works } from "@/components/sections/Works";
@@ -8,6 +8,21 @@ import { Pricing } from "@/components/sections/Pricing";
 import { PortfolioDownload } from "@/components/sections/PortfolioDownload";
 import { Contact } from "@/components/sections/Contact";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "JustSearch UAE | Complete Digital Growth Partner",
+  description:
+    "UAE-focused digital growth partner for website development, SEO & AEO, social media marketing, lead generation, and business software.",
+  path: "/",
+  keywords: [
+    "digital marketing uae",
+    "web design dubai",
+    "seo agency uae",
+    "social media marketing dubai",
+    "lead generation uae",
+  ],
+});
 
 export default function Home() {
   return (

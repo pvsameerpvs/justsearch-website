@@ -112,14 +112,14 @@ export function Services() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-black uppercase tracking-[0.2em] mb-6"
+            className="uniform-header-kicker mb-6"
           >
             Our Ecosystem
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black tracking-tighter"
+            className="uniform-header-title uniform-header-title-light"
           >
             Digital Products & <span className="text-brand-orange">Services</span>
           </motion.h2>
@@ -127,7 +127,7 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="mt-8 text-brand-text/70 dark:text-gray-400 max-w-3xl mx-auto text-xl leading-relaxed"
+            className="uniform-header-description mt-8 text-brand-text/70 dark:text-gray-400 max-w-3xl mx-auto"
           >
             Empowering UAE businesses with a powerful digital arsenal. Our solutions are crafted for impact, designed for scale, and optimized for maximum ROI.
           </motion.p>

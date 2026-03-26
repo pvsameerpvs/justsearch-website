@@ -56,13 +56,13 @@ export function TrustedClients() {
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-[10px] font-black uppercase tracking-[0.25em] mb-5">
+          <div className="uniform-header-kicker mb-5">
             Trusted Clients
           </div>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">
+          <h2 className="uniform-header-title uniform-header-title-light mb-4">
             CLIENTS WHO <span className="text-brand-orange">TRUST US</span>
           </h2>
-          <p className="text-brand-text/70 dark:text-gray-300 font-medium max-w-3xl mx-auto">
+          <p className="uniform-header-description text-brand-text/70 dark:text-gray-300 max-w-3xl mx-auto">
             25+ client brands across healthcare, services, retail, travel, and local businesses.
           </p>
         </div>

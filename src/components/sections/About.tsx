@@ -31,10 +31,10 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-center mb-14"
           >
-            <div className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-orange text-xs font-black uppercase tracking-[0.3em] mb-8">
+            <div className="uniform-header-kicker-dark mb-8">
               Our DNA
             </div>
-            <h2 className="text-5xl md:text-8xl text-white font-black tracking-tighter leading-[0.9]">
+            <h2 className="uniform-header-title uniform-header-title-dark">
               CRAFTING <span className="text-brand-orange">DIGITAL</span> GROWTH.
             </h2>
           </motion.div>

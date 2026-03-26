@@ -46,14 +46,14 @@ export function Solutions() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="inline-block px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-[10px] font-black uppercase tracking-[0.3em] mb-6"
+              className="uniform-header-kicker mb-6"
             >
               The Impact
             </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-8xl font-black mb-10 tracking-tighter leading-[0.9]"
+              className="uniform-header-title uniform-header-title-light mb-10"
             >
               SOLUTIONS THAT <br /><span className="text-brand-orange">SCALE.</span>
             </motion.h2>
@@ -61,7 +61,7 @@ export function Solutions() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-brand-text/70 dark:text-gray-400 mb-12 font-medium leading-relaxed"
+              className="uniform-header-description text-brand-text/70 dark:text-gray-400 mb-12"
             >
               We don&apos;t just deliver services; we deploy growth systems. Each solution is a cog in a high-performance machine designed for the UAE ecosystem.
             </motion.p>

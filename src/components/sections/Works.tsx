@@ -83,7 +83,7 @@ export function Works() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-black uppercase tracking-[0.25em] mb-6"
+            className="uniform-header-kicker mb-6"
           >
             <Monitor className="w-4 h-4" />
             Creative Vault
@@ -92,7 +92,7 @@ export function Works() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-6"
+            className="uniform-header-title uniform-header-title-light mb-6"
           >
             WORK THAT MAKES
             <br />
@@ -102,7 +102,7 @@ export function Works() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-brand-text/70 dark:text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-medium"
+            className="uniform-header-description text-brand-text/70 dark:text-gray-300 max-w-3xl mx-auto"
           >
             From high-converting websites to scroll-stopping reels and striking poster campaigns, this is how we turn ideas into measurable digital momentum.
           </motion.p>
