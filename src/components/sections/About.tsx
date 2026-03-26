@@ -7,8 +7,8 @@ import { useState } from "react";
 
 const stats = [
   { label: "Successful Launch", value: "500+", icon: Trophy },
-  { label: "Local Expertise", value: "10 Years", icon: Building2 },
-  { label: "Growth Generated", value: "+300%", icon: BarChart3 },
+  { label: "Business Experience", value: "5+ Years", icon: Building2 },
+  { label: "Growth Generated", value: "+102%", icon: BarChart3 },
   { label: "Client Satisfaction", value: "99%", icon: Users2 },
 ];
 
@@ -35,7 +35,7 @@ export function About() {
               Our DNA
             </div>
             <h2 className="text-5xl md:text-8xl text-white font-black tracking-tighter leading-[0.9]">
-              ARCHITECTING <span className="text-brand-orange">DIGITAL</span> DOMINANCE.
+              CRAFTING <span className="text-brand-orange">DIGITAL</span> GROWTH.
             </h2>
           </motion.div>
 
@@ -92,22 +92,22 @@ export function About() {
         </div>
 
         {/* Dynamic Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="group p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-brand-orange/30 hover:bg-brand-orange/5 transition-all duration-500 text-center"
+              className="group h-full p-4 sm:p-6 lg:p-10 rounded-2xl sm:rounded-3xl lg:rounded-[2.5rem] bg-white/5 border border-white/10 hover:border-brand-orange/30 hover:bg-brand-orange/5 transition-all duration-500 text-center"
             >
-              <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-all duration-500">
-                <stat.icon className="w-8 h-8 text-brand-orange group-hover:text-white" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-white/5 flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 mx-auto group-hover:bg-brand-orange group-hover:text-white transition-all duration-500">
+                <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-brand-orange group-hover:text-white" />
               </div>
-              <div className="text-5xl font-black mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-500">
+              <div className="text-2xl sm:text-3xl lg:text-5xl leading-none font-black mb-2 sm:mb-3 tracking-tighter group-hover:scale-110 transition-transform duration-500">
                 {stat.value}
               </div>
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-300 group-hover:text-brand-orange transition-colors">
+              <div className="min-h-[2rem] sm:min-h-[2.5rem] text-[10px] sm:text-[11px] lg:text-[10px] font-black uppercase tracking-[0.08em] sm:tracking-[0.14em] lg:tracking-[0.2em] leading-snug break-words text-gray-300 group-hover:text-brand-orange transition-colors">
                 {stat.label}
               </div>
             </motion.div>

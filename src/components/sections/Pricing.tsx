@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Check, Info, Sparkles, Zap, Shield, Crown, Star, Smartphone, Workflow, Globe, LineChart, Boxes, BookOpen, type LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 type PricingPlan = {
   name: string;
@@ -198,7 +199,7 @@ export function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-orange text-xs font-black uppercase tracking-[0.3em] mb-6"
           >
-            Investment
+            Packages
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -206,7 +207,7 @@ export function Pricing() {
             transition={{ delay: 0.1 }}
             className="text-white text-5xl md:text-8xl font-black tracking-tighter mb-8"
           >
-            PLANS & <span className="text-brand-orange">PRICING</span>
+            PLANS & <span className="text-brand-orange">PACKAGES</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -214,7 +215,7 @@ export function Pricing() {
             transition={{ delay: 0.2 }}
             className="text-gray-200/90 max-w-3xl mx-auto text-xl leading-relaxed"
           >
-            Transparent pricing for non-linear growth. Choose a roadmap that aligns with your business velocity.
+            Flexible service bundles for non-linear growth. Choose a roadmap that aligns with your business velocity.
           </motion.p>
         </div>
 
@@ -292,10 +293,12 @@ export function Pricing() {
                     </div>
                   </div>
                   <div className="text-center p-12 bg-[#1f252f]/95 rounded-[2.5rem] border border-white/15 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.65)] backdrop-blur-xl group hover:border-brand-orange/50 transition-colors duration-700">
-                    <div className="text-[10px] text-brand-orange uppercase font-black tracking-[0.3em] mb-4">Investment</div>
-                    <div className="text-8xl font-black text-white mb-2 tracking-tighter group-hover:scale-110 transition-transform duration-700">50</div>
-                    <div className="text-brand-orange font-black mb-8 uppercase tracking-widest text-sm">AED / LIFETIME</div>
-                    <Button className="w-full bg-gradient-brand py-8 text-lg font-black rounded-2xl shadow-xl shadow-brand-orange/20 hover:scale-[1.02] transition-transform">Get Listed</Button>
+                    <div className="text-[10px] text-brand-orange uppercase font-black tracking-[0.3em] mb-4">Package</div>
+                    <div className="text-4xl font-black text-white mb-2 tracking-tight group-hover:scale-110 transition-transform duration-700">Lifetime Access</div>
+                    <div className="text-brand-orange font-black mb-8 uppercase tracking-widest text-sm">Directory Bundle</div>
+                    <Button asChild className="w-full bg-gradient-brand py-8 text-lg font-black rounded-2xl shadow-xl shadow-brand-orange/20 hover:scale-[1.02] transition-transform">
+                      <Link href="/contact">Get Listed</Link>
+                    </Button>
                   </div>
                </div>
             </motion.div>
@@ -317,7 +320,9 @@ export function Pricing() {
                 <p className="text-gray-200/90 text-lg font-medium">Looking for a tailored strategy? We offer bespoke bundles for high-growth firms.</p>
               </div>
             </div>
-            <Button variant="outline" className="bg-transparent text-white border-white/25 px-10 py-8 h-auto text-xl font-bold rounded-2xl hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-300">Talk To Expert</Button>
+            <Button asChild variant="outline" className="bg-transparent text-white border-white/25 px-10 py-8 h-auto text-xl font-bold rounded-2xl hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-300">
+              <Link href="/contact">Talk To Expert</Link>
+            </Button>
         </motion.div>
       </div>
     </section>
@@ -338,22 +343,11 @@ function PricingCard({ plan, idx, compact = false }: { plan: PricingPlan; idx: n
         </div>
       )}
       
-      {plan.save && (
-        <div className="absolute top-10 right-10 bg-green-500/20 text-green-500 border border-green-500/30 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
-          Save {plan.save}
-        </div>
-      )}
-
       <div className={`w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:rotate-12 transition-transform duration-500`}>
         <plan.icon className="w-7 h-7 text-brand-orange" />
       </div>
 
       <h3 className="text-2xl text-white font-black mb-4 tracking-tight group-hover:text-brand-orange transition-colors">{plan.name}</h3>
-      
-      <div className="flex items-baseline gap-1 mb-6">
-        <span className="text-5xl font-black tracking-tighter"><span className="text-brand-orange text-lg mr-1 tracking-normal font-bold">AED</span>{plan.price}</span>
-        {plan.period && <span className="text-gray-300/90 font-bold ml-1">{plan.period}</span>}
-      </div>
 
       {!compact && <p className="text-gray-200/90 mb-10 min-h-[3rem] leading-relaxed font-medium">{plan.desc}</p>}
       
@@ -368,8 +362,8 @@ function PricingCard({ plan, idx, compact = false }: { plan: PricingPlan; idx: n
         ))}
       </div>
 
-      <Button className={`w-full py-8 text-lg font-black rounded-2xl ${plan.popular ? "bg-gradient-brand shadow-xl shadow-brand-orange/20" : "bg-white/10 text-white border border-white/15 hover:bg-white/20"} transition-all duration-300`}>
-        Get Started
+      <Button asChild className={`w-full py-8 text-lg font-black rounded-2xl ${plan.popular ? "bg-gradient-brand shadow-xl shadow-brand-orange/20" : "bg-white/10 text-white border border-white/15 hover:bg-white/20"} transition-all duration-300`}>
+        <Link href="/contact">Get Started</Link>
       </Button>
     </motion.div>
   );

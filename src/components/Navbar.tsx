@@ -14,7 +14,7 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Our Works", href: "/works" },
-  { name: "Pricing", href: "/pricing" },
+  { name: "Team", href: "/team" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -39,7 +39,7 @@ export function Navbar() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-6",
         isScrolled || !isHome
           ? "glass shadow-2xl py-4"
-          : "bg-transparent"
+          : "glass shadow-2xl"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -81,15 +81,19 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-6">
-          <Button variant="outline" className={cn(
+          <Button asChild variant="outline" className={cn(
             "border-brand-orange/50 text-brand-orange hover:bg-brand-orange hover:text-white rounded-xl px-6 font-bold transition-all duration-300",
             (!isScrolled && isHome) ? "dark:text-white" : ""
           )}>
-            <Phone className="w-4 h-4 mr-2" />
-            +971 554617275
+            <a href="tel:+971554617275">
+              <Phone className="w-4 h-4 mr-2" />
+              +971 554617275
+            </a>
           </Button>
-          <Button className="bg-gradient-brand hover:opacity-90 shadow-lg shadow-brand-orange/20 rounded-xl px-8 font-black text-xs uppercase tracking-widest group">
-            Consult <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <Button asChild className="bg-gradient-brand hover:opacity-90 shadow-lg shadow-brand-orange/20 rounded-xl px-8 font-black text-xs uppercase tracking-widest group">
+            <Link href="/contact">
+              Consult <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
           </Button>
         </div>
 
@@ -133,12 +137,16 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="pt-6 border-t border-gray-100 dark:border-white/10 flex flex-col gap-4">
-                <Button variant="outline" className="w-full py-7 border-brand-orange text-brand-orange rounded-2xl font-bold">
-                  <Phone className="w-5 h-5 mr-3" />
-                  Request Callback
+                <Button asChild variant="outline" className="w-full py-7 border-brand-orange text-brand-orange rounded-2xl font-bold">
+                  <a href="tel:+971554617275">
+                    <Phone className="w-5 h-5 mr-3" />
+                    Request Callback
+                  </a>
                 </Button>
-                <Button className="w-full py-7 bg-gradient-brand rounded-2xl font-black text-xs uppercase tracking-[0.2em]">
-                  Start Your Growth
+                <Button asChild className="w-full py-7 bg-gradient-brand rounded-2xl font-black text-xs uppercase tracking-[0.2em]">
+                  <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                    Start Your Growth
+                  </Link>
                 </Button>
               </div>
             </div>

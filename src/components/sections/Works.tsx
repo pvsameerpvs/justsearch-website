@@ -86,24 +86,41 @@ export function Works() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-black uppercase tracking-[0.25em] mb-6"
           >
             <Monitor className="w-4 h-4" />
-            Our Works
+            Creative Vault
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-8"
+            className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-6"
           >
-            PROJECT <span className="text-brand-orange">SHOWCASE</span>
+            WORK THAT MAKES
+            <br />
+            <span className="text-brand-orange">BRANDS UNMISSABLE</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-brand-text/70 dark:text-gray-300 max-w-3xl mx-auto text-xl leading-relaxed font-medium"
+            className="text-brand-text/70 dark:text-gray-300 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-medium"
           >
-            A quick look at our website builds, social media reels, and poster designs.
+            From high-converting websites to scroll-stopping reels and striking poster campaigns, this is how we turn ideas into measurable digital momentum.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.28 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3"
+          >
+            {["Web Experiences", "Social Reels", "Poster Campaigns"].map((item) => (
+              <span
+                key={item}
+                className="px-4 py-2 rounded-full border border-gray-200 dark:border-white/15 bg-white dark:bg-white/[0.04] text-[11px] sm:text-xs font-black uppercase tracking-[0.18em] text-brand-text dark:text-gray-100"
+              >
+                {item}
+              </span>
+            ))}
+          </motion.div>
         </div>
 
         <div className="mb-24">

@@ -36,7 +36,7 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/works" className="hover:text-white transition-colors">Our Works</Link></li>
-              <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing Plans</Link></li>
+              <li><Link href="/pricing" className="hover:text-white transition-colors">Plans</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact Expert</Link></li>
             </ul>
           </div>
@@ -56,8 +56,8 @@ export function Footer() {
            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-8 normal-case text-center md:text-left">
               <span>www.justsearch.ae</span>
               <span>+971 554617275</span>
-              <span>justsearch.ae@gmail.com</span>
-              <span>Rega, DAMAS TOWER - Al Maktoum Rd - Riggat Al Buteen - Dubai</span>
+              <span>info@justsearch.com</span>
+              <span>Rega, Damas Tower - Al Maktoum Rd - Riggat Al Buteen - Dubai</span>
            </div>
         </div>
       </div>
