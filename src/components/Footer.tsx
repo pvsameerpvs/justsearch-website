@@ -57,7 +57,7 @@ export function Footer() {
               <span>www.justsearchwebdesign.com</span>
               <span>+971 554617275</span>
               <span>info@justsearch.com</span>
-              <span>Rega, Damas Tower - Al Maktoum Rd - Riggat Al Buteen - Dubai</span>
+              <span>Rigga, Damas Tower - Al Maktoum Rd - Rigga Al Buteen - Dubai</span>
            </div>
         </div>
       </div>

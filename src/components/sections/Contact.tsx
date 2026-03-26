@@ -150,7 +150,7 @@ export function Contact() {
                 {
                   icon: MapPin,
                   label: "Visit Us",
-                  value: "Rega, Damas Tower - Al Maktoum Rd - Riggat Al Buteen - Dubai",
+                  value: "Rigga, Damas Tower - Al Maktoum Rd - Rigga Al Buteen - Dubai",
                   sub: "Office Address",
                 },
               ].map((item, i) => (

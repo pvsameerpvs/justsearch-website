@@ -17,7 +17,7 @@ const teamGroups: { title: string; members: TeamMember[] }[] = [
   },
   {
     title: "Admin HR",
-    members: [{ name: "Pooja", photo: "/team/pooja.jpeg" }],
+    members: [{ name: "Pooja Kataria", photo: "/team/pooja.jpeg" }],
   },
   {
     title: "Business Development",

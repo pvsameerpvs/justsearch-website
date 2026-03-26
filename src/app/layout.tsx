@@ -90,7 +90,7 @@ export default function RootLayout({
     telephone: "+971554617275",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Rega, Damas Tower - Al Maktoum Rd - Riggat Al Buteen",
+      streetAddress: "Rigga, Damas Tower - Al Maktoum Rd - Rigga Al Buteen",
       addressLocality: "Dubai",
       addressCountry: "AE",
     },
