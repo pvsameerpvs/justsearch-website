@@ -118,8 +118,8 @@ export function Team() {
         <div className="space-y-12">
           {teamGroups.map((group) => (
             <div key={group.title}>
-              <h3 className="text-2xl md:text-3xl font-black tracking-tight mb-6 text-white">{group.title}</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              <h3 className="text-2xl md:text-3xl font-black tracking-tight mb-6 text-white text-center">{group.title}</h3>
+              <div className="grid [grid-template-columns:repeat(auto-fit,minmax(240px,280px))] justify-center gap-8">
                 {group.members.map((member) => (
                   <TeamPassportCard key={`${group.title}-${member.name}`} member={member} />
                 ))}
